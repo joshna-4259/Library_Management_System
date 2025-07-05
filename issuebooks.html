@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue/Return Books - Library Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <main>
+        <section class="issue-return">
+            <h2>Issue or Return Book</h2>
+            <form id="issueReturnForm" onsubmit="return issueReturnBook()">
+                <label for="bookId">Book ID</label>
+                <input type="text" id="bookId" required>
+
+                <label for="action">Action</label>
+                <select id="action">
+                    <option value="issue">Issue</option>
+                    <option value="return">Return</option>
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="overdue">
+            <h2>Overdue Books</h2>
+            <ul id="overdueList"></ul>
+        </section>
+    </main>
+</body>
+</html>

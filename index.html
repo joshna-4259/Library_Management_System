@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Header styling */
+        header {
+            background-color: #2825ce;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Centered navigation container */
+        nav {
+            text-align: center;
+            margin: 50px;
+        }
+
+        /* Button styles */
+        nav button {
+            padding: 15px 30px;
+            background-color: #2125dd;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Hover effects */
+        nav button:hover {
+            background-color: #0312db;
+            transform: scale(1.05);
+        }
+
+        /* Section styling */
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Smooth transition for background-color */
+        body {
+            transition: background-color 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+
+    <nav>
+        <!-- Link buttons to other pages -->
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='register.html'">Register</button>
+        <button onclick="window.location.href='dashboard.html'">Admin Dashboard</button>
+        <button onclick="window.location.href='searchbooks.html'">Search Books</button>
+        <button onclick="window.location.href='issuebooks.html'">Issue/Return Books</button>
+        <button onclick="window.location.href='remainders.html'">Reminders</button>
+    </nav>
+
+    <!-- Optional Section for content or more links -->
+    <section>
+        <h2>Welcome to the Library Management System</h2>
+        <p>Select a section from the menu above to proceed.</p>
+    </section>
+
+</body>
+</html>

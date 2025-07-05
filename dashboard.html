@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Library Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h2>Add New Book</h2>
+            <form id="addBookForm" onsubmit="return addBook()">
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" required>
+
+                <label for="author">Author</label>
+                <input type="text" id="author" required>
+
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" required>
+
+                <label for="bookType">Book Type</label>
+                <select id="bookType" required>
+                    <option value="CSE">CSE</option>
+                    <option value="Non-fiction">CSM</option>
+                    <option value="Science">CSD</option>
+                    <option value="History">ECE</option>
+                    <option value="Biography">EEE</option>
+                    <option value="Fantasy">MECH</option>
+                    <option value="Others">CIVIL</option>
+                    <option value="Others">MBA</option>
+                    <option value="Others">OTHERS</option>
+                </select>
+
+                <label for="availability">Availability</label>
+                <select id="availability">
+                    <option value="available">Available</option>
+                    <option value="borrowed">Borrowed</option>
+                </select>
+
+                <!-- New Book Renewal Column -->
+                <label for="renewalStatus">Renewal Status</label>
+                <select id="renewalStatus" required>
+                    <option value="notRenewed">Not Renewed</option>
+                    <option value="renewed">Renewed</option>
+                </select>
+
+                <label for="renewalDate">Renewal Date (if applicable)</label>
+                <input type="date" id="renewalDate" name="renewalDate">
+
+                <button type="submit">Add Book</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+
+

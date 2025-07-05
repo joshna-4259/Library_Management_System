@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .user-type {
+            margin-bottom: 20px;
+        }
+
+        .user-type label {
+            margin: 0 10px;
+        }
+
+        .input-field {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .captcha {
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .captcha input {
+            width: 60%;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #0a50b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0714be;
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            font-size: 14px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Library Management System</h2>
+    <form id="loginForm">
+        <!-- User Type Selection -->
+        <div class="user-type">
+            <label><input type="radio" id="faculty" name="userType" value="faculty"> Faculty</label>
+            <label><input type="radio" id="student" name="userType" value="student" checked> Student</label>
+        </div>
+
+        <!-- Username Field -->
+        <div class="input-field">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <!-- Password Field -->
+        <div class="input-field">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <!-- CAPTCHA Field -->
+        <div class="captcha">
+            <label for="captcha">Captcha:</label>
+            <input type="text" id="captcha" name="captcha" required placeholder="Enter captcha">
+            <img src="c:\Users\VAMSI KIRAN\captcha-internet-translate.jpg" alt="captcha" class="captcha-image">
+        </div>
+        
+        <style>
+            /* Overall styling for the captcha section */
+            .captcha {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 300px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        
+            /* Styling for the label */
+            .captcha label {
+                font-size: 16px;
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #333;
+            }
+        
+            /* Styling for the captcha input field */
+            .captcha input {
+                width: 80%;
+                padding: 10px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+        
+            /* Styling for the captcha image */
+            
+        
+            /* Styling for the input focus state */
+            .captcha input:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+        </style>
+        
+        <!-- Login Button -->
+        <button type="submit" id="loginButton">Login</button>
+    </form>
+
+    <!-- Links -->
+    <div class="links">
+        <a href="#" onclick="forgotPassword()">Forgot your password?</a><br>
+        <a href="#" onclick="registerUser()">New user? Register here</a>
+    </div>
+</div>
+
+<script>
+    // Handle form submission
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page refresh
+
+        const userType = document.querySelector('input[name="userType"]:checked').value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const captcha = document.getElementById("captcha").value;
+
+        // Dummy CAPTCHA validation
+        if (captcha !== "1234") {
+            alert("Invalid CAPTCHA. Please try again.");
+            return;
+        }
+
+        // For demonstration purposes, we just log the details (add actual validation here)
+        console.log(`Login attempt: ${userType}, Username: ${username}, Password: ${password}`);
+
+        // Simulate successful login
+        if (username && password) {
+            alert(`Welcome ${userType.charAt(0).toUpperCase() + userType.slice(1)}!`);
+            // Redirect user based on role
+            if (userType === "faculty") {
+                window.location.href = "faculty-dashboard.html";
+            } else {
+                window.location.href = "student-dashboard.html";
+            }
+        } else {
+            alert("Please fill out all fields.");
+        }
+    });
+
+    // Dummy password recovery
+    function forgotPassword() {
+        alert("Password recovery link sent to your email.");
+    }
+
+    // Dummy register
+    function registerUser() {
+        alert("Redirecting to registration page...");
+        // Redirect to a registration page (use your actual registration page URL)
+        window.location.href = "register.html";
+    }
+</script>
+
+</body>
+</html>
+

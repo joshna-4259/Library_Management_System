@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <main>
+        <section class="form-container">
+            <h2>Register</h2>
+            <form id="registerForm" onsubmit="return validateRegistration()">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <label for="userType">Register As</label>
+                <select id="userType" name="userType" onchange="toggleFields()">
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+
+                <!-- Department Dropdown -->
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="computerScience">Computer Science</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="mechanical">Mechanical</option>
+                    <option value="civil">Civil</option>
+                    <option value="electrical">Electrical</option>
+                </select>
+
+                <!-- Year Dropdown for Student Only -->
+                <label for="year" id="yearLabel" style="display:none;">Year</label>
+                <select id="year" name="year" style="display:none;">
+                    <option value="firstYear">1st Year</option>
+                    <option value="secondYear">2nd Year</option>
+                    <option value="thirdYear">3rd Year</option>
+                    <option value="fourthYear">4th Year</option>
+                </select>
+
+                <!-- Register Number for Both Faculty and Student -->
+                <label for="registerNumber">Register Number</label>
+                <input type="text" id="registerNumber" name="registerNumber" required>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Function to toggle additional fields based on user type (student or faculty)
+        function toggleFields() {
+            const userType = document.getElementById('userType').value;
+            const yearField = document.getElementById('year');
+            const yearLabel = document.getElementById('yearLabel');
+
+            // Show year field for students only
+            if (userType === 'student') {
+                yearField.style.display = 'block';
+                yearLabel.style.display = 'block';
+            } else {
+                yearField.style.display = 'none';
+                yearLabel.style.display = 'none';
+            }
+        }
+
+        // Initialize the form with correct fields visibility
+        window.onload = function() {
+            toggleFields();
+        };
+    </script>
+</body>
+</html>
+
